@@ -37,12 +37,19 @@ function onChange() {
     waitingToUpdate = false;
 }
 
+let textArea;
+
 let changeObserver = new MutationObserver(() => {
     if(waitingToUpdate) return;
+
+    // confirm that there is an emoji
+    if(!textArea.querySelector("img")) return;
     onChange();
 });
 
-function onAreaFound(textArea) {
+function onAreaFound(newArea) {
+    textArea = newArea;
+
     // this code adapted from https://github.com/rauenzi/BDPluginLibrary/blob/master/src/modules/reacttools.js
     let reactInstance = textArea[Object.keys(textArea).find((key) => key.startsWith("__reactInternalInstance") || key.startsWith("__reactFiber"))]
     editor = reactInstance?.return?.return?.stateNode?.ref?.current?.getSlateEditor()
@@ -51,14 +58,14 @@ function onAreaFound(textArea) {
     changeObserver.observe(textArea, {childList: true, subtree: true})
 }
 
-const textareaSelector = ".textArea__74543"
+const textareaSelector = "[class*='textArea__']"
 let textareaObserver = new MutationObserver((mutations) => {
     for(let mutation of mutations) {
         for(let node of mutation.addedNodes) {
-            let textarea = node.matches?.(textareaSelector) ? node : node.querySelector?.(textareaSelector)
-            if(!textarea) continue;
+            let found = node.matches?.(textareaSelector) ? node : node.querySelector?.(textareaSelector)
+            if(!found) continue;
 
-            onAreaFound(textarea)
+            onAreaFound(found)
         }
     }
 })
