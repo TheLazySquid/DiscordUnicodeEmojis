@@ -2,7 +2,7 @@
  * @name UnicodeEmojis
  * @description Replaces discord emojis that you send with their unicode equivalent
  * @author TheLazySquid
- * @version 0.1.0
+ * @version 0.1.1
  * @authorId 619261917352951815
  * @source https://github.com/TheLazySquid/DiscordUnicodeEmojis
  */
