@@ -2,7 +2,7 @@
  * @name UnicodeEmojis
  * @description Replaces discord emojis that you send with their unicode equivalent
  * @author TheLazySquid
- * @version 0.1.1
+ * @version 0.2.0
  * @authorId 619261917352951815
  * @source https://github.com/TheLazySquid/DiscordUnicodeEmojis
  */
@@ -58,7 +58,7 @@ function onAreaFound(newArea) {
     changeObserver.observe(textArea, {childList: true, subtree: true})
 }
 
-const textareaSelector = "[class*='textArea__']"
+const textareaSelector = "[class*='textArea_']"
 let textareaObserver = new MutationObserver((mutations) => {
     for(let mutation of mutations) {
         for(let node of mutation.addedNodes) {
