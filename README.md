@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This plugin has been moved to my [new plugin repository](https://github.com/TheLazySquid/BetterDiscordPlugins/tree/main/plugins/UnicodeEmojis). Changes will no longer be reflected here, and this repository may be removed in the future.
+
 # Discord Unicode Emojis
 
 This is a [BetterDiscord](https://betterdiscord.app/) plugin that automatically escapes emojis that you type in chat, turning them into their unicode equivalents.
